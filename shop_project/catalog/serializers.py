@@ -15,6 +15,7 @@ class ProductImageSerializer(serializers.ModelSerializer):
         model = ProductImage
         fields = ('image', )
 
+
 class ProductSerializer(serializers.ModelSerializer):
     images = ProductImageSerializer(many=True, source='productimage_set')
 
