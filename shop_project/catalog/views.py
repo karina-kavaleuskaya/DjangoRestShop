@@ -14,6 +14,7 @@ class CategoryListView(ListAPIView):
     serializer_class = CategorySerializer
     permission_classes = (AllowAny, )
 
+
 class CategoryProductsView(APIView):
     permission_classes = (AllowAny, )
 
