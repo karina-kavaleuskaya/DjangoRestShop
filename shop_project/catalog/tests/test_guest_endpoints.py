@@ -23,14 +23,14 @@ class TestGuestEndpoints(APITestCase):
             },
             {
                 "id": 2,
-                "name":EVERYTHING_EQUALS_NOT_NONE,
+                "name": EVERYTHING_EQUALS_NOT_NONE,
                 "description": EVERYTHING_EQUALS_NOT_NONE
             },
             {
                 "id": 3,
                 "name": EVERYTHING_EQUALS_NOT_NONE,
                 "description": EVERYTHING_EQUALS_NOT_NONE
-            },
+            }
         ]
 
 class TestCategoriesView(APITestCase):
@@ -56,30 +56,6 @@ class TestCategoriesView(APITestCase):
             }
         ]
 
-    def test_categories_list_endpoints(self):
-        url = reverse('categories')
-        responce = self.client.get(url)
-        assert responce.status_code == 200
-        assert isinstance(responce.data, list)
-        assert responce.data == [
-            {
-                "id": 1,
-                "name": EVERYTHING_EQUALS_NOT_NONE,
-                "description": EVERYTHING_EQUALS_NOT_NONE
-            },
-            {
-                "id": 2,
-                "name":EVERYTHING_EQUALS_NOT_NONE,
-                "description": EVERYTHING_EQUALS_NOT_NONE
-            },
-            {
-                "id": 3,
-                "name": EVERYTHING_EQUALS_NOT_NONE,
-                "description": EVERYTHING_EQUALS_NOT_NONE
-            },
-        ]
-
-
     def test_discounts_list(self):
         url = reverse('discounts')
         responce = self.client.get(url)
@@ -102,37 +78,22 @@ class TestCategoriesView(APITestCase):
             }
         ]
 
-        def test_category_products(self):
-            url = reverse('category-products', kwargs={'category_id': 1})
-            response = self.client.get(url)
+    def test_category_products(self):
+        url = reverse('category-product', kwargs={'category_id': 1})
+        response = self.client.get(url)
 
-            assert response.status_code == 200
-            assert response.data == [
-                {
-                    "id": 5,
-                    "name": EVERYTHING_EQUALS_NOT_NONE,
-                    "price": "50.00",
-                    "article": EVERYTHING_EQUALS_NOT_NONE,
-                    "description": EVERYTHING_EQUALS_NOT_NONE,
-                    "count_on_stock": EVERYTHING_EQUALS_NOT_NONE,
-                    "discount": EVERYTHING_EQUALS_NOT_NONE,
-                    "category": EVERYTHING_EQUALS_NOT_NONE,
-                    "seller": EVERYTHING_EQUALS_NOT_NONE,
-                    "images": EVERYTHING_EQUALS_NOT_NONE
-                }
-            ]
-            assert response.data[0]["discount"] == {
-                "id": 1,
-                "name": EVERYTHING_EQUALS_NOT_NONE,
-                "percent": 30,
-                "date_start": EVERYTHING_EQUALS_NOT_NONE,
-                "date_end": EVERYTHING_EQUALS_NOT_NONE
-            }
-            assert response.data[0]["images"] == {
+        assert response.status_code == 200
+        assert isinstance(response.data, list)
+        assert response.data == [
+            {
                 "id": 4,
-                "product": 4,
-                "image": EVERYTHING_EQUALS_NOT_NONE
+                "article": EVERYTHING_EQUALS_NOT_NONE,
+                "name": EVERYTHING_EQUALS_NOT_NONE,
+                "price": EVERYTHING_EQUALS_NOT_NONE,
+                "images": EVERYTHING_EQUALS_NOT_NONE
             }
+        ]
+
 
 
 
