@@ -35,9 +35,9 @@ class Discount(models.Model):
 
 class Promocode(models.Model):
     name = models.CharField(max_length=100)
-    date_start = models.DateTimeField()
+    date_start = models.DateField()
     percent = models.PositiveIntegerField()
-    date_end = models.DateTimeField()
+    date_end = models.DateField()
     is_cumulative = models.BooleanField()
 
     def __str__(self):

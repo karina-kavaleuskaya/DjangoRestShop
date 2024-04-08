@@ -1,4 +1,4 @@
-from catalog.models import Category, Product, Seller, Discount, Cart
+from catalog.models import Category, Product, Seller, Discount, Cart, Cashback
 from rest_framework.generics import ListAPIView
 from catalog.serializers import (CategorySerializer, ProductSerializer, SellerSerializer,
                                  DiscountSerializer, AddProductSerializer, CartSerializer,
@@ -101,7 +101,7 @@ class OrderView(APIView):
     permission_classes = (IsAuthenticated, )
 
     def post(self, request):
-        input_serializer = OrderSerializer(data=request.data)
+        input_serializer = OrderSerializer(data=request.data, context={'request': request})
         input_serializer.is_valid(raise_exception=True)
         input_serializer.save()
         return Response(input_serializer.data)
