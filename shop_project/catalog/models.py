@@ -71,7 +71,7 @@ class ProductImage(models.Model):
 class Cart(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    count = models.PositiveIntegerField()
+    count = models.PositiveIntegerField(null=True)
 
 
 class Order(models.Model):
@@ -106,7 +106,7 @@ class Order(models.Model):
     user = models.ForeignKey(CustomUser, null=True, on_delete=models.SET_NULL)
     created_at = models.DateTimeField(auto_now_add=True)
     total_sum = models.DecimalField(max_digits=10, decimal_places=2)
-    status = models.CharField(choices=STATUSES, max_length=100)
+    status = models.CharField(choices=STATUSES, max_length=100, default="In process")
 
     delivery_address = models.CharField(max_length=250, null=True, blank=True)
     delivery_method = models.CharField(choices=DELIVERY_METHODS, max_length=100)
