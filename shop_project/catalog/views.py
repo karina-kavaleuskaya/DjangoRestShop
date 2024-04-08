@@ -6,12 +6,14 @@ from catalog.serializers import (CategorySerializer, ProductSerializer, SellerSe
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from django.db.models import F
 
 
 class CategoryListView(ListAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     permission_classes = (AllowAny, )
+
 
 class CategoryProductsView(APIView):
     permission_classes = (AllowAny, )

@@ -1,0 +1,11 @@
+[
+{
+    "model": "catalog.seller",
+    "pk": 1,
+    "fields": {
+        "name": "─шы■ъ ╨рэутшэфЁ",
+        "description": "dfghjkl;",
+        "contact": "fghnjkl.;"
+    }
+}
+]

@@ -14,6 +14,7 @@ class ProductImageSerializer(serializers.ModelSerializer):
         model = ProductImage
         fields = ('image', )
 
+
 class ProductSerializer(serializers.ModelSerializer):
     images = ProductImageSerializer(many=True, source='productimage_set')
 
@@ -34,6 +35,7 @@ class DiscountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Discount
         fields = ('id', 'name', 'percent', 'date_start', 'date_end')
+
 
 class AddProductSerializer(serializers.Serializer):
     product_id = serializers.IntegerField()
