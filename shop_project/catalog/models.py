@@ -115,6 +115,8 @@ class Order(models.Model):
     payment_status = models.CharField(choices=PAYMENT_STATUSES, max_length=100, default='In process')
     delivery_notification_before = models.PositiveIntegerField(choices=NOTIF_TIMES, default=6)
 
+    if_notif_sent = models.BooleanField(default=False)
+
     def __str__(self):
         return f"{self.pk} {self.user.email}"
 
