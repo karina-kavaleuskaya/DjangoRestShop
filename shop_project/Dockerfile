@@ -4,7 +4,7 @@ ENV PYTHONBUFFERED 1
 
 WORKDIR /app
 
-COPY requirements.txt ./
+COPY requrements.txt ./
 
 RUN pip3 install -r "requrements.txt"
 
