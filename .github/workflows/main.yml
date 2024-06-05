@@ -41,7 +41,7 @@ jobs:
 
       - name: Lint with Prospector
         run: |
-          prospector || True
+          prospector || true
 
       - name: Run Tests
         run: |
