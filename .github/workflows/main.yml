@@ -1,4 +1,4 @@
-namae: Test Django CI
+name: Test Django CI
 
 
 on:
